@@ -1,0 +1,74 @@
+import java.util.Scanner;
+class employee
+{
+   String name;
+   int id,salary;
+   double sal ;
+   void input()
+    {
+       System.out.println("enter name of employee:");
+       Scanner i=new Scanner(System.in);
+       name=i.nextLine();
+       System.out.println("enter id of employee:");
+       id=i.nextInt();
+       System.out.println("enter salary of employee:");
+       salary=i.nextInt();
+   }
+  void read_emp()
+   {
+       System.out.println("name of the employee :  "+name);
+       System.out.println("id : "+id);
+       System.out.println("salary  : "+salary);
+   }
+}
+class permanent_employee extends employee
+{
+    void claculate()
+     {
+         sal=salary+(0.05)*salary;
+     }
+     void display()
+    {
+         System.out.println("incremented salary of  "+name+" is : "+sal);
+     }
+}
+class temporary_employee extends employee
+{
+    void claculate()
+     {
+         sal=salary+(0.035)*salary;
+     }
+    void display()
+    {
+         System.out.println("incremented salary of  "+name+" is : "+sal);
+     }
+}
+class w43
+{
+    public static void main(String args[])
+{
+    Scanner n=new Scanner(System.in);
+    System.out.println("enter 1 for permenant employee , 2 for temporary employee");
+    int ch=n.nextInt();
+    switch(ch)
+    {
+       case 1:  
+                    permanent_employee emp=new permanent_employee();
+                    emp.input();
+                    System.out.println("DETAILS OF PERMANANT EMPLOYEE");
+                    emp.read_emp();
+                    emp.claculate();
+                    emp.display();
+                    break;
+       case 2:  
+                    temporary_employee em=new temporary_employee();
+                    em.input();
+                    System.out.println("DETAILS OF TEMPORARY EMPLOYEE");
+                    em.read_emp();
+                    em.claculate();
+                    em.display();
+                    break;  
+      default: System.out.println("enter proper choice");
+    }                
+}         
+}      
